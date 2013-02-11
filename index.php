@@ -624,7 +624,7 @@ font-size: 28px;">Here is the story</button>
 		    method: "POST", // (not implemented) (optional, defaults to POST) HTTP Method can be either POST or PUT 
 		    url: "form.php",   // URL to upload to (needs to have a suitable crossdomain.xml for Adobe Flash)
 		   // audioParam: "audiofile",           // Name for the audio data parameter, default is "audio"
-		    params: {                                  // Additional parameters (needs to be a flat object)
+		    params: {                                  // Additional parameters (needs to be a flat object) ada
 		      "name": uploaded_filename,
 		      "signature":$('#signature').val(),
 		      
