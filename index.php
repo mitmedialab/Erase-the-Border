@@ -11,6 +11,7 @@
 		foreach ($rss->items as $item) {
 
 			if ($item[enclosure_url] != null){ 
+
 				if (strstr($item[enclosure_url], $voicefilename)){
 					$idx--;
 					break;
@@ -35,147 +36,11 @@
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
          <link href="images/css-social-buttons/social-buttons.css" rel="stylesheet">
-       
+         <link href="css/erasetheborder.css" rel="stylesheet">
+       <script src="js/erasetheborder.js"></script>
         <script type="text/javascript" src="audio/recorder.js"></script>
         <style>
-        	html { 
-				background: url(images/fence-1985.jpg) no-repeat center center fixed; 
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover;
-			}
-			.slide{
-				margin:0px auto;
-				width:50%;
-				color: white;
-				background-color: rgba(0,0,0,0.2);
-				padding:10px;
-				display:none;
-			}
-			.enter,#welcome{
-				margin:0px auto;
-				display:none;
-				width:50%;
-				padding: 100px;
-				text-align: center;
-			}
-			.anchor{
-				position:relative; top:-125px;
-			}
-			body{
-				background-color: transparent;
-			}
-			#skip, #slide-progress-bar{
-				position:absolute;
-				bottom:40px;
-				
-			}
-			#slide-progress-bar{
-				left:44%
-			}
-			#slide-progress-bar i{
-				margin-right:3px;
-			}
-			#skip{
-				right:40px;
-			}
-			#page{
-				display:none;
-				
-				margin: auto 80px;
-				padding-top:100px;
-			}
-			.background-block{
-				padding: 10px;
-				background-color: rgba(255, 255, 255, 0.4);
-				margin-bottom: 50px;
-			}
-			#page > h1, #page > h2, header h1{
-				border-bottom: 1px solid black;
-				margin: 0;
-				background-color: rgba(0, 0, 0, 0.6);
-				color: white;
-				border-top: 1px solid black;
-				padding: 10px;
-			}
-			#add-form-div,#thanks,#audio-petition-files{
-				display:none;
-			}
-			#description{
-				float:right;
-				width:46%;
-			}
-			#left-col{
-				width: 48%;
-				float:left;
-				margin-right:25px;
-			}
-			#signatures{
-				margin-top:10px;
-				-webkit-box-shadow: inset 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
-				box-shadow: inset 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
-				
-				line-height: 67px;
-				font-weight: normal;
-				color: #333;
-				text-align: center;
-				display: none;
-				
-				background-color: rgba(255, 255, 255, 0.8);
-				font-size: 50px;
-				font-family: seaweed-script, serif;
-				
-				
-				height:350px;
-				padding:10px;
-				
-			}
-			footer{
-				padding: 5%;
-				text-align: center;
-				color: #333;
-				clear: all;
-				float: none;
-				margin-top: 20px;
-			}
-			footer img{
-				height:75px;
-				margin-right:10px;
-			}
-			footer h5{
-				padding:0 150px;
-			}
-			.clearfix:after {
-			   content: " "; /* Older browser do not support empty content */
-			   visibility: hidden;
-			   display: block;
-			   height: 0;
-			   clear: both;
-			}
-			#add-your-voice{
-				margin-top: 25px;
-				padding: 26px 100px;
-				font-size: 29px;
-			}
-			header h1{
-				white-space: nowrap;
-				padding: 30px;
-				font-size: 125px;
-				text-align: center;
-				color: rgba(255, 255, 255, 0.3);
-				background-color: rgba(0, 0, 0, 0.9);
-			}
-			header{
-				position:fixed;
-				width:100%;
-				display: none;
-			}
-			.thumbnail {
-				background-color: rgba(255, 255, 255, 0.8);
-				border:1px solid #CCC;
-				padding: 4px 14px;
-			}
+        	
 
         </style>
     </head>
@@ -227,6 +92,13 @@
 		<div class="slide">
 			<h1>Will you add your voice?</h1>
 		</div>
+		
+		<div id="intro-oodham-map" class="little-map">
+			<a href="images/oodham_map_revised.png" target="_blank"><img src="images/oodham_map_revised.png"></a>
+		</div>
+		<div id="intro-oodham-video2">
+				<object width="110%" height="110%"><param name="movie" value="http://www.youtube.com/v/m0Dy3eHPUi0?version=3&amp;hl=en_US&amp;rel=0&amp;autoplay=1&amp;loop=1&amp;playlist=m0Dy3eHPUi0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/m0Dy3eHPUi0?version=3&amp;hl=en_US&amp;rel=0&amp;autoplay=1&amp;loop=1&amp;playlist=m0Dy3eHPUi0" type="application/x-shockwave-flash" width="110%" height="110%" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+			</div>
 		<div>
 			<button id="skip" class="btn btn-small btn-mini" type="button">skip intro</button>
 		</div>
@@ -235,11 +107,11 @@
 		</div>
 		<div class="enter">
 			<button id="cross" class="btn btn-large btn-danger" type="button" style="padding: 20px 100px;
-font-size: 28px;">Cross</button>
+font-size: 28px;">Enter</button>
 		</div>
 		<div id="welcome">
 			<button id="welcome-button" class="btn btn-large btn-danger" type="button" style="padding: 20px 100px;
-font-size: 28px;">Here is the story</button>
+font-size: 28px;">Click to begin</button>
 		</div>
 		<header>
 			<h1>ERASE THE BORDER</h1>
@@ -254,6 +126,7 @@ font-size: 28px;">Here is the story</button>
 							
 							if ($item[enclosure_url] != null){ 
 								
+
 								?>
 								<div class="signature">
 									<p class="signature-text"><?= $item[title] ?></p>
@@ -335,9 +208,11 @@ font-size: 28px;">Here is the story</button>
 					
 				</div><!--end left col-->
 
-				<div id="description"><h2>A petition of <?= $signatureCount ?> voices against the US-Mexico border fence on the Tohono O’odham Indian Reservation</h2>
-				<h3 style="margin-top:25px">The border fence divides the community, prevents tribe members from receiving critical health services and subjects O'odham to racism and discrimination. 
+				<div id="description"><h2>A petition of <?= $signatureCount ?> voices to make Tohono O'odham citizenship part of comprehensive immigration reform</h2>
+				<h3 style="margin-top:25px">The 2008 border fence divides the community, prevents tribe members from receiving critical health services and subjects O'odham to racism and discrimination. All O'odham tribe members should have US citizenship.
 					<a href="#more">Learn more...</a></h3>
+				<h3 style="margin-top:25px">By signing the petition, you support putting Tohono O'odham citizenship back on the table (<a href="http://www.govtrack.us/congress/bills/107/hr2348">it was shelved in 2001</a>) as part of comprehensive immigration reform.
+					</h3>
 				<h4 style="margin-top:25px;line-height:25px">Your voices will be recorded together, remixed as songs, and sent to legislators. Read more about <a href="#whereyourvoicewillgo">where your voice will go and how you can use this archive</a>.</h4>
 			</div>
 			<div class="clearfix"></div>
@@ -348,7 +223,28 @@ font-size: 28px;">Here is the story</button>
 				  <embed height="1" width="1" src="audio/ofelia.mp3">
 				</audio>
 			</div>
+		<h2><a class="anchor" name="more">&nbsp;</a>Our Voices</h2>
+		<div class="background-block">
+			<?php
+				foreach ($rss->items as $item) {
+					
+					if ($item[enclosure_url] != null){ 
+						$random = rand(1,4);
+						
+						$idx = strrpos($item[enclosure_url], '/', -1);
+						
+						$filename = substr($item[enclosure_url], $idx + 1);
+						
+						?>
+						<a href="index.php?voice=<?= $filename ?>" data-toggle="tooltip" title="<?= $item[title] ?>" class="voices"><img src="images/icon<?= $random ?>.png" alt="<?= $item[title] ?>"></a>
+			<?php
+					} //end if enclosure != null
+					
+				} //end foreach items
+			?>
 			
+			
+		</div>
 		<h2><a class="anchor" name="whereyourvoicewillgo">&nbsp;</a>Where does my voice go?</h2>
 		<div class="background-block">
 			<ul class="thumbnails">
@@ -448,102 +344,6 @@ font-size: 28px;">Here is the story</button>
 	</div>
 
 	</body>
-	<script type="text/javascript">
-	$(document).ready(function() {
-		$('#recorderFlashContainer').css('z-index','2000');
-
-		if (window.location.href.indexOf('?voice=') >= 0){
-			
-			skipIntro();
-
-		}
-		else{
-			$('#welcome').fadeIn();
-			document.getElementById('ofelia-song').volume = 0.3;
-			document.getElementById('ofelia-song').play();
-			$('#welcome-button').click(function(){ 
-				startIntro();
-				$('#welcome').fadeOut();
-
-			});
-			
-		}
-		$('#cross,#skip').click(skipIntro);
-		$('#pause-button').click(pauseSignatures);
-		$('#play-button').click(playSignatures);
-		$('#add-your-voice-modal').on('show', function () {
-		  pauseSignatures();
-		});
-		$('#add-your-voice-modal').on('hidden', function () {
-		  playSignatures();
-		});
-				
-		
-
-	});
-	function startIntro(){
-		window.showingIntro=true;	
-		$('#slide-progress-bar').show();
-		nextSlide(0);
-	}
-	function skipIntro(){
-		$('#welcome').hide();
-		$('#slide-progress-bar').hide();
-		$('#skip').hide();
-		$('.slide').hide();
-		$('.enter').fadeOut();
-		$('header,#page').fadeIn();
-		document.getElementById('ofelia-song').pause();
-		window.showingIntro=false;
-		$('#signatures').fadeIn();
-		$('.signature').hide();
-		window.playingSignatures = true;
-
-		//If passed in a voice= param then play the requested voice first
-		if (parseInt($('#voice-requested-from-url').text()) > 0 ){
-			nextSignature(parseInt($('#voice-requested-from-url').text()));
-		} else {
-			nextSignature(0);
-		}
-	}
-	function playSignatures(){
-		window.playingSignatures = true;
-		nextSignature(window.lastSignature + 1);
-		$('#play-button').hide();
-		$('#pause-button').show();
-	}
-	function pauseSignatures(){
-		window.playingSignatures = false;
-
-		$('#pause-button').hide();
-		$('#play-button').show();
-	}
-	function nextSlide(i){
-		if (window.showingIntro){
-
-			if (i< $('.slide').length){
-				$('.slide:eq('+i+')').show().delay(6000).fadeOut(function(){ nextSlide(i+1); });
-				$('#slide-progress-bar>i:eq('+i+')').addClass('icon-white');
-			}else{
-				$('#skip').fadeOut();
-				$('.enter').fadeIn('slow');
-			}
-		}
-	}
-	function nextSignature(i){
-		if (!window.showingIntro && window.playingSignatures){
-			
-			if (i< $('.signature').length){
-				window.lastSignature = i;
-				$('.signature:eq('+i+')').find('.signature-audio').get(0).play();
-				$('.signature:eq('+i+')').show().delay( Math.max(4000, parseInt($('.signature:eq('+i+')').find('.signature-audio').get(0).duration * 1000)) ).fadeOut(function(){ nextSignature(i+1); });
-			}else{
-				nextSignature(0);
-			}
-		}
-	}
-	
-	</script>
 	<script>
       function timecode(ms) {
         var hms = {
@@ -654,5 +454,5 @@ font-size: 28px;">Here is the story</button>
 		    },
 		  });
       }
-      </script>
+    </script>
 </html>

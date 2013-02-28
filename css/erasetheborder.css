@@ -1,0 +1,179 @@
+html { 
+	background: url(../images/fence-1985.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.slide{
+	margin:0px auto;
+	width:75%;
+	color: white;
+	background-color: rgba(0,0,0,0.2);
+	padding:10px;
+	display:none;
+}
+.slide h1{
+	font-size: 60px;
+	line-height: 75px;
+
+}
+
+#intro-oodham-map{
+	overflow: hidden;
+	z-index: 2	;
+	position: absolute;
+	display: none;
+}
+.big-map{
+	width: 1200px;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	top:0;
+	opacity: 0.8;
+}
+.little-map{
+	bottom:0;
+	left:0;
+	width:400px;
+	border-top: 2px solid rgba(100,100,100,0.9);
+
+	border-right: 2px solid rgba(100,100,100,0.9);
+}
+#intro-oodham-video2{
+	display:none;
+}
+#intro-oodham-video2 object{
+	z-index: -1;
+	position: absolute;
+	top:-50px;
+	left:-50px;
+	width:110%;
+	height: 110%;
+	opacity: 0.8;
+}
+.enter,#welcome{
+	margin:0px auto;
+	display:none;
+	width:50%;
+	padding: 100px;
+	text-align: center;
+}
+.anchor{
+	position:relative; top:-125px;
+}
+body{
+	background-color: transparent;
+}
+#skip, #slide-progress-bar{
+	position:absolute;
+	bottom:40px;
+	
+}
+#slide-progress-bar{
+	left:44%
+}
+#slide-progress-bar i{
+	margin-right:3px;
+}
+#skip{
+	right:40px;
+}
+#page{
+	display:none;
+	
+	margin: auto 80px;
+	padding-top:100px;
+}
+.background-block{
+	padding: 10px;
+	background-color: rgba(255, 255, 255, 0.4);
+	margin-bottom: 50px;
+}
+#page > h1, #page > h2, header h1{
+	border-bottom: 1px solid black;
+	margin: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	border-top: 1px solid black;
+	padding: 10px;
+}
+#add-form-div,#thanks,#audio-petition-files{
+	display:none;
+}
+#description{
+	float:right;
+	width:46%;
+}
+#left-col{
+	width: 48%;
+	float:left;
+	margin-right:25px;
+}
+#signatures{
+	margin-top:10px;
+	-webkit-box-shadow: inset 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+	
+	line-height: 67px;
+	font-weight: normal;
+	color: #333;
+	text-align: center;
+	display: none;
+	
+	background-color: rgba(255, 255, 255, 0.8);
+	font-size: 50px;
+	font-family: seaweed-script, serif;
+	
+	
+	height:350px;
+	padding:10px;
+	
+}
+footer{
+	padding: 5%;
+	text-align: center;
+	color: #333;
+	clear: all;
+	float: none;
+	margin-top: 20px;
+}
+footer img{
+	height:75px;
+	margin-right:10px;
+}
+footer h5{
+	padding:0 150px;
+}
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+#add-your-voice{
+	margin-top: 25px;
+	padding: 26px 100px;
+	font-size: 29px;
+}
+header h1{
+	white-space: nowrap;
+	padding: 30px;
+	font-size: 125px;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.3);
+	background-color: rgba(0, 0, 0, 0.9);
+}
+header{
+	position:fixed;
+	width:100%;
+	display: none;
+}
+.thumbnail {
+	background-color: rgba(255, 255, 255, 0.8);
+	border:1px solid #CCC;
+	padding: 4px 14px;
+}
