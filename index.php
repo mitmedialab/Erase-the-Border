@@ -111,7 +111,7 @@ font-size: 28px;">Enter</button>
 		</div>
 		<div id="welcome">
 			<button id="welcome-button" class="btn btn-large btn-danger" type="button" style="padding: 20px 100px;
-font-size: 28px;">Click to begin</button>
+font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
 		</div>
 		<header>
 			<h1>ERASE THE BORDER</h1>
@@ -211,7 +211,7 @@ font-size: 28px;">Click to begin</button>
 				<div id="description"><h2>A petition of <?= $signatureCount ?> voices to make Tohono O'odham citizenship part of comprehensive immigration reform</h2>
 				<h3 style="margin-top:25px">The 2008 border fence divides the community, prevents tribe members from receiving critical health services and subjects O'odham to racism and discrimination. All O'odham tribe members should have US citizenship.
 					<a href="#more">Learn more...</a></h3>
-				<h3 style="margin-top:25px">By signing the petition, you support putting Tohono O'odham citizenship back on the table (<a href="http://www.govtrack.us/congress/bills/107/hr2348">it was shelved in 2001</a>) as part of comprehensive immigration reform.
+				<h3 style="margin-top:25px">By signing the petition, you support putting Tohono O'odham citizenship back on the table (<a href="http://www.govtrack.us/congress/bills/107/hr2348" target="_blank">it was shelved in 2001</a>) as part of comprehensive immigration reform.
 					</h3>
 				<h4 style="margin-top:25px;line-height:25px">Your voices will be recorded together, remixed as songs, and sent to legislators. Read more about <a href="#whereyourvoicewillgo">where your voice will go and how you can use this archive</a>.</h4>
 			</div>
