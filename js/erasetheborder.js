@@ -14,7 +14,7 @@ $(document).ready(function() {
 			$('#welcome-button').click(function(){ 
 				startIntro();
 				$('#welcome').fadeOut();
-
+				return false;
 			});
 			
 		}
@@ -74,7 +74,7 @@ $(document).ready(function() {
 			if (i==1){
 				$('#intro-oodham-map').fadeIn('slow');
 			}
-			else if (i==2){
+			else if (i==10){
 				
 				$('#intro-oodham-video2').fadeIn('slow');	
 			}
@@ -85,6 +85,7 @@ $(document).ready(function() {
 			}else{
 				$('#skip').fadeOut();
 				$('.enter').fadeIn('slow');
+				$('#intro-oodham-video2').fadeOut(10000);
 			}
 		}
 	}

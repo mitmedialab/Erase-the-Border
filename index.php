@@ -193,7 +193,7 @@ font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
 					  </div>
 					  <div class="modal-footer">
 					  	<legend>No mic? No Adobe Flash? No Problem.</legend>
-						<p>Call the Erase the Border hotline at (888) 821-7563 ext. 2843 to record your voice directly to the petition or email your signature and audio file to dignazio AT mit DOT edu.</p>
+						<p>Call the Erase the Border hotline at (520) 812-5840 to record your voice directly to the petition or email your signature and audio file to dignazio AT mit DOT edu.</p>
 					    
 					    
 					  </div>
@@ -383,6 +383,7 @@ font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
 	          }
 	        });
     	}
+    	return false;
       }
       
       function play(){
@@ -393,6 +394,7 @@ font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
             document.getElementById("time").innerHTML = timecode(milliseconds);
           }
         });
+        return false;
       }
       
       function stop(){
@@ -403,6 +405,7 @@ font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
   		$('#upload').show();
   		$('#start-over').show();
         Recorder.stop();
+        return false;
         
       }
       function startOver(){
@@ -414,6 +417,7 @@ font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
   		$('#play').hide();
   		$('#upload').hide();
   		$('#start-over').hide();
+  		return false;
       }
       function upload(){
       	$('form').hide();
