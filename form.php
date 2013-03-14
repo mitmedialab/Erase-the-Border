@@ -10,6 +10,7 @@
 	$cc = "kanarinka@gmail.com";
 	$from = "www-data@brownbag.me";
 	$subject = $_POST['signature'];
+	$subject_with_email = $_POST['signature-with-email'];
 	$message = "A voice for change";
 
 	$separator = md5(time());
@@ -48,6 +49,12 @@
 
 	// send message
 	if (mail($to, $subject, $body, $headers)) {
+	    //echo "mail send ... OK";
+	} else {
+	    echo "Sorry! There was an error mailing your file to Vojo!";
+	}
+	// send message only to Catherine with email address
+	if (mail("kanarinka@gmail.com", $subject_with_email, $body, $headers)) {
 	    //echo "mail send ... OK";
 	} else {
 	    echo "Sorry! There was an error mailing your file to Vojo!";

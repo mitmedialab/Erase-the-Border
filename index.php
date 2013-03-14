@@ -160,7 +160,7 @@ font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
 							    
 							    <input type="text" style="font-size:25px;height:50px;padding:5px 0 0 10px" class="input-block-level" name="signature-name" id="signature-name" placeholder="Your name">
 							    <input type="text" style="font-size:25px;height:50px;padding:5px 0 0 10px; margin: 5px 5px 0 0;
-width: 150px;" class="input-small" name="signature-email" id="signature-email" placeholder="Your email">
+width: 150px;" class="input-small" name="signature-email" id="signature-email" placeholder="Your email"><a href="#" id="email-privacy" data-toggle="tooltip" title="Your email will not be sold or shared." style="margin-right:20px"><i class="icon-question-sign"></i></a>
 							    <input type="text" style="font-size:25px;height:50px;padding:5px 0 0 10px;margin: 5px 5px 0 0;
 width: 165px;" class="input-small" name="signature-zip" id="signature-zip" placeholder="Your zip code">
 							    <a href="javascript:record()"  id="record" style="float:none"><button class="btn btn-danger" type="button">Start Recording</button></a> 
@@ -435,8 +435,8 @@ width: 165px;" class="input-small" name="signature-zip" id="signature-zip" place
 
   		var signatureWithEmail= $('#signature-name').val() + ", " + $('#signature-email').val() + ", " + $('#signature-zip').val();
   		var uploaded_filename = signature.toLowerCase().replace(/[^a-zA-Z0-9]/mg,'');
+
   		
-  		console.log(uploaded_filename)
       	
       	Recorder.upload({
 		    method: "POST", // (not implemented) (optional, defaults to POST) HTTP Method can be either POST or PUT 
@@ -445,7 +445,7 @@ width: 165px;" class="input-small" name="signature-zip" id="signature-zip" place
 		    params: {                                  // Additional parameters (needs to be a flat object) ada
 		      "name": uploaded_filename,
 		      "signature":signature,
-
+		      "signature-with-email":signatureWithEmail,
 		      
 		    },
 		    success: function(responseText){           // will be called after successful upload
@@ -459,7 +459,7 @@ width: 165px;" class="input-small" name="signature-zip" id="signature-zip" place
 		    	$('#facebook-link').attr('href','http://www.facebook.com/sharer.php?'+'s=100&p[title]=Erase%20the%20Border&p[url]='+link+'&p[summary]=I%20signed%20a%20voice%20petition%20to%20Erase%20the%20US-Mexico%20Border.%20Listen%20up!%20');
 
 		    	$('#twitter-link').attr('href','http://twitter.com/share?text=I%20signed%20a%20voice%20petition%20to%20Erase%20the%20Border.%20Listen%20up!%20&url=' + link);
-		    	$('.modal-footer').html('<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Done</button>');
+		    	//$('.modal-footer').html('<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Done</button>');
 
 		    	$('#thanks').show();
 		    	$('#signature-link').click(function() {

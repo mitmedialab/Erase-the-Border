@@ -1,4 +1,5 @@
 $(document).ready(function() {
+		$('#email-privacy').tooltip()
 		$('.voices').tooltip();
 		$('#recorderFlashContainer').css('z-index','2000');
 
@@ -65,7 +66,9 @@ $(document).ready(function() {
 	}
 	function pauseSignatures(){
 		window.playingSignatures = false;
-
+		//$('.signature-text').html("");
+		$('.signature:eq('+window.lastSignature+')').hide();
+		$('.signature:eq('+window.lastSignature+')').find('.signature-audio').get(0).pause();
 		$('#pause-button').hide();
 		$('#play-button').show();
 	}
