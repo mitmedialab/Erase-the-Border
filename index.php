@@ -154,12 +154,16 @@ font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
 					    <h3 id="myModalLabel">Record Your Voice Right Here</h3>
 					  </div>
 					  <div class="modal-body">
-					    <form id="add-form" enctype="multipart/form-data">
+					    <form id="add-form" class="form-inline" enctype="multipart/form-data">
 							<fieldset>
 							    
 							    
-							    <input type="text" style="font-size:25px;height:50px;padding:5px 0 0 10px" class="input-block-level" name="signature" id="signature" placeholder="Your name, title, affiliation, location">
-							    <a href="javascript:record()"  id="record"><button class="btn btn-danger" type="button">Start Recording</button></a> 
+							    <input type="text" style="font-size:25px;height:50px;padding:5px 0 0 10px" class="input-block-level" name="signature-name" id="signature-name" placeholder="Your name">
+							    <input type="text" style="font-size:25px;height:50px;padding:5px 0 0 10px; margin: 5px 5px 0 0;
+width: 150px;" class="input-small" name="signature-email" id="signature-email" placeholder="Your email">
+							    <input type="text" style="font-size:25px;height:50px;padding:5px 0 0 10px;margin: 5px 5px 0 0;
+width: 165px;" class="input-small" name="signature-zip" id="signature-zip" placeholder="Your zip code">
+							    <a href="javascript:record()"  id="record" style="float:none"><button class="btn btn-danger" type="button">Start Recording</button></a> 
 							   	<a href="javascript:play()"  id="play" style="display:none"><button class="btn btn-danger" type="button">Play</button></a> 
 							   	<a href="javascript:stop()"  id="stop" style="display:none"><button class="btn btn-danger" type="button">Stop Recording</button></a>
 							   	
@@ -167,14 +171,7 @@ font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
 							   	<a href="javascript:upload()"  id="upload" style="display:none"><button class="btn btn-primary pull-right" type="button">Submit</button></a>
 							    
 							   
-							   <button class="btn btn-inverse" type="button" id="time" style="font-size:30px;display:none">0:00</button>
-					            
-					            
-								
-							    
-							   
-
-							    
+							   <button class="btn btn-inverse" type="button" id="time" style="font-size:30px;display:none">0:00</button>			    
 							  </fieldset>
 						</form>
 						<div class="progress progress-striped" style="display:none">
@@ -184,6 +181,7 @@ font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
 							<h2 class="error"></h2>
 							<p>Copy this link to listen to your voice and share it with others. Note that your voice is being processed on the server for about the next two minutes. After that, the link will work perfectly.</p>
 							<input type="text" style="font-size:14px;height:50px;padding:5px 0 0 10px" class="input-block-level" id="signature-link" value="">
+
 							<h3>Share your voice with your friends</h3>
 							<p>
 								<a id="twitter-link" href="" target="_blank" class="sb large twitter">Tweet your voice</a> 
@@ -192,8 +190,15 @@ font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
 						</div>
 					  </div>
 					  <div class="modal-footer">
-					  	<legend>No mic? No Adobe Flash? No Problem.</legend>
-						<p>Call the Erase the Border hotline at (520) 812-5840 to record your voice directly to the petition or email your signature and audio file to dignazio AT mit DOT edu.</p>
+					  	<legend><img src="images/microphone.png" width="50px">What do I say?</legend>
+						<p>"Erase the Border"</p>
+						<p>"Erase the Border. Make Tohono O'odham citizenship part of comprehensive immigration reform."</p>
+					    <p>Or tell a short story about the impact of the border on your community.</p>
+					    
+					  </div>
+					  <div class="modal-footer">
+					  	<legend><img src="images/phone.png" width="50px">Call in your signature</legend>
+						<p>If you have problems recording here on the webpage you can call the Erase the Border hotline at (520) 812-5840.</p>
 					    
 					    
 					  </div>
@@ -366,8 +371,12 @@ font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
       });
 
       function record(){
-      	if ($('#signature').val().length == 0 ){
-      		alert('Please enter your signature in the text field');
+      	if ($('#signature-name').val().length == 0 ){
+      		alert('Please enter your name in the text field');
+      	} else if ($('#signature-email').val().length == 0 ){
+      		alert('Please enter your email in the text field');
+      	} else if ($('#signature-zip').val().length == 0 ){
+      		alert('Please enter your zip in the text field');
       	} else {
 	        Recorder.record({
 	          start: function(){
@@ -422,7 +431,12 @@ font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
       function upload(){
       	$('form').hide();
   		$('.progress').show();
-  		var uploaded_filename = $('#signature').val().toLowerCase().replace(/[^a-zA-Z0-9]/mg,'');
+  		var signature = $('#signature-name').val() + ", " + $('#signature-zip').val();
+
+  		var signatureWithEmail= $('#signature-name').val() + ", " + $('#signature-email').val() + ", " + $('#signature-zip').val();
+  		var uploaded_filename = signature.toLowerCase().replace(/[^a-zA-Z0-9]/mg,'');
+  		
+  		console.log(uploaded_filename)
       	
       	Recorder.upload({
 		    method: "POST", // (not implemented) (optional, defaults to POST) HTTP Method can be either POST or PUT 
@@ -430,7 +444,8 @@ font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
 		   // audioParam: "audiofile",           // Name for the audio data parameter, default is "audio"
 		    params: {                                  // Additional parameters (needs to be a flat object) ada
 		      "name": uploaded_filename,
-		      "signature":$('#signature').val(),
+		      "signature":signature,
+
 		      
 		    },
 		    success: function(responseText){           // will be called after successful upload

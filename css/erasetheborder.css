@@ -163,7 +163,8 @@ footer h5{
 header h1{
 	white-space: nowrap;
 	padding: 30px;
-	font-size: 125px;
+	font-size: 7em;
+	font-size: 9.0vw;
 	text-align: center;
 	color: rgba(255, 255, 255, 0.3);
 	background-color: rgba(0, 0, 0, 0.9);
@@ -177,4 +178,13 @@ header{
 	background-color: rgba(255, 255, 255, 0.8);
 	border:1px solid #CCC;
 	padding: 4px 14px;
+}
+.modal-footer{
+	text-align: left;
+}
+body .modal {
+    /* new custom width */
+    width: 750px;
+    /* must be half of the width, minus scrollbar on the left (30px) */
+    margin-left: -375px;
 }
