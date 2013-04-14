@@ -151,7 +151,7 @@ font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
 					<div id="add-your-voice-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					  <div class="modal-header">
 					    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					    <h3 id="myModalLabel">Record Your Voice Right Here</h3>
+					    <h3 id="myModalLabel">Add Your Voice</h3>
 					  </div>
 					  <div class="modal-body">
 					    <form id="add-form" class="form-inline" enctype="multipart/form-data">
@@ -162,7 +162,7 @@ font-size: 28px;">Turn on your sound <br/><br/>Click to begin</button>
 							    <input type="text" style="font-size:25px;height:50px;padding:5px 0 0 10px; margin: 5px 5px 0 0;
 width: 150px;" class="input-small" name="signature-email" id="signature-email" placeholder="Your email"><a href="#" id="email-privacy" data-toggle="tooltip" title="Your email will not be sold or shared." style="margin-right:20px"><i class="icon-question-sign"></i></a>
 							    <input type="text" style="font-size:25px;height:50px;padding:5px 0 0 10px;margin: 5px 5px 0 0;
-width: 165px;" class="input-small" name="signature-zip" id="signature-zip" placeholder="Your zip code">
+width: 165px;" class="input-small" name="signature-zip" id="signature-zip" placeholder="Your City, State, and Country">
 							    <a href="javascript:record()"  id="record" style="float:none"><button class="btn btn-danger" type="button">Start Recording</button></a> 
 							   	<a href="javascript:play()"  id="play" style="display:none"><button class="btn btn-danger" type="button">Play</button></a> 
 							   	<a href="javascript:stop()"  id="stop" style="display:none"><button class="btn btn-danger" type="button">Stop Recording</button></a>
@@ -197,8 +197,8 @@ width: 165px;" class="input-small" name="signature-zip" id="signature-zip" place
 					    
 					  </div>
 					  <div class="modal-footer">
-					  	<legend><img src="images/phone.png" width="50px">Call in your signature</legend>
-						<p>If you have problems recording here on the webpage you can call the Erase the Border hotline at (520) 812-5840.</p>
+					  	<legend><img src="images/phone.png" width="50px">Call (520) 812-5840 now!</legend>
+						<p>You can call the Erase the Border hotline at (520) 812-5840. Just follow the prompts to record your voice.</p>
 					    
 					    
 					  </div>
@@ -350,6 +350,18 @@ width: 165px;" class="input-small" name="signature-zip" id="signature-zip" place
 
 	</body>
 	<script>
+
+	//Detect Flash for recording voice in browser.
+	if(swfobject.hasFlashPlayerVersion("10"))
+	{
+	   window.hasFlash = true;
+	}
+	else
+	{
+		$('#add-form').hide();
+	   	window.hasFlash = false;
+	}
+
       function timecode(ms) {
         var hms = {
           h: Math.floor(ms/(60*60*1000)),
@@ -376,7 +388,7 @@ width: 165px;" class="input-small" name="signature-zip" id="signature-zip" place
       	} else if ($('#signature-email').val().length == 0 ){
       		alert('Please enter your email in the text field');
       	} else if ($('#signature-zip').val().length == 0 ){
-      		alert('Please enter your zip in the text field');
+      		alert('Please enter your location in the text field');
       	} else {
 	        Recorder.record({
 	          start: function(){

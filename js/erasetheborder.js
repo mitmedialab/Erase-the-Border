@@ -55,12 +55,18 @@ $(document).ready(function() {
 		if (parseInt($('#voice-requested-from-url').text()) > 0 ){
 			nextSignature(parseInt($('#voice-requested-from-url').text()));
 		} else {
-			nextSignature(0);
+			//Play signatures in random order
+			var random = Math.floor(( Math.random()* $('.signature').length - 1) ) ;
+			nextSignature(random);
 		}
 	}
 	function playSignatures(){
 		window.playingSignatures = true;
-		nextSignature(window.lastSignature + 1);
+
+		//Play signatures in random order
+		var random = Math.floor(( Math.random()* $('.signature').length - 1) ) ;
+		
+		nextSignature( random );
 		$('#play-button').hide();
 		$('#pause-button').show();
 	}
@@ -94,11 +100,13 @@ $(document).ready(function() {
 	}
 	function nextSignature(i){
 		if (!window.showingIntro && window.playingSignatures){
+			//Play signatures in random order
+			var random = Math.floor(( Math.random()* $('.signature').length - 1) ) ;
 			
 			if (i< $('.signature').length){
 				window.lastSignature = i;
 				$('.signature:eq('+i+')').find('.signature-audio').get(0).play();
-				$('.signature:eq('+i+')').show().delay( Math.max(4000, parseInt($('.signature:eq('+i+')').find('.signature-audio').get(0).duration * 1000)) ).fadeOut(function(){ nextSignature(i+1); });
+				$('.signature:eq('+i+')').show().delay( Math.max(4000, parseInt($('.signature:eq('+i+')').find('.signature-audio').get(0).duration * 1000)) ).fadeOut(function(){ nextSignature(random); });
 			}else{
 				nextSignature(0);
 			}
